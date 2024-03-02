@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const admin_controller_1 = require("../controller/admin_controller");
+const user_controller_1 = require("../controller/user_controller");
+const router = (0, express_1.Router)();
+router.route('/admin/add/grocery').post(admin_controller_1.adminCreateGrocery);
+router.route('/admin/grocery-items/all').get(admin_controller_1.getAllItemGrocery);
+router.route('/admin/grocery-items/').delete(admin_controller_1.deleteItemGrocery);
+router.route('/admin/grocery-items/').put(admin_controller_1.updateItemGrocery);
+router.route('/admin/grocery-items/manage-inventory/').patch(admin_controller_1.manageInventoryGrocery);
+router.route('/user/grocery-items').get(user_controller_1.getAllGrocery);
+router.route('/user/order').post(user_controller_1.createUserOrder);
+exports.default = router;
